@@ -1,11 +1,16 @@
 export interface Player {
   id: string;
-  name: string;
-  avatar: string;
+  username: string;
+  roomCode?: string;
+  status: 'online' | 'offline' | 'in_game';
+  avatarUrl?: string;
+  createdAt: string;
 }
 
 export interface Room {
-  id: string;
+  name: string;
+  ownerId: string;
   code: string;
   players: Player[];
+  maxPlayers: number;
 }
