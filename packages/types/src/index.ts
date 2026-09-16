@@ -13,4 +13,22 @@ export interface Room {
   code: string;
   players: Player[];
   maxPlayers: number;
+  isPublic: boolean;
+  status: 'waiting' | 'playing';
+}
+
+export interface Game {
+  id: string;
+  roomCode: string;
+  status: 'playing' | 'closed';
+  turn: number;
+  currentPlayerId: string;
+  players: GamePlayer[];
+  round: number;
+  winnerId?: string;
+}
+
+export interface GamePlayer {
+  playerId: string;
+  position: number;
 }

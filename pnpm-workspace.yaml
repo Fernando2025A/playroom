@@ -2,5 +2,6 @@ packages:
   - "apps/*"
   - "packages/*"
 allowBuilds:
+  '@apollo/protobufjs': true
   '@parcel/watcher': true
   unrs-resolver: true

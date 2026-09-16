@@ -1,4 +1,6 @@
+import { Transform } from 'class-transformer';
 import {
+  IsBoolean,
   IsNotEmpty,
   IsNumber,
   IsString,
@@ -22,4 +24,14 @@ export class CreateRoomDto {
   @IsString()
   @IsNotEmpty()
   ownerId: string;
+
+  @Transform(({ value }) => {
+    if (typeof value === 'boolean') return value;
+    if (typeof value === 'string') return value.toLowerCase() === 'true';
+    if (typeof value === 'number') return value === 1;
+    return false;
+  })
+  @IsBoolean()
+  @IsNotEmpty()
+  isPublic: boolean;
 }
